@@ -1,7 +1,7 @@
 const ANIMATION_DURATION = 1.5;
 const OFFSET_DISTANCE = 5;
-const SCALE_DESKTOP = 0.08;
-const SCALE_MOBILE = 0.06;
+const MB16_SCALE = 0.08;
+const MB14_SCALE = 0.06;
 
 const navLinks = [
     { label: "Store" },
@@ -136,8 +136,8 @@ const footerLinks = [
 export {
     ANIMATION_DURATION,
     OFFSET_DISTANCE,
-    SCALE_DESKTOP,
-    SCALE_MOBILE,
+    MB14_SCALE,
+    MB16_SCALE,
     features,
     featureSequence,
     footerLinks,

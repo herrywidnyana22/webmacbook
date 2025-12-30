@@ -6,7 +6,7 @@ import useMacbookStore from "../store"
 
 import { Html } from "@react-three/drei"
 import { Canvas } from "@react-three/fiber"
-import { features, featureSequence, SCALE_DESKTOP, SCALE_MOBILE } from "../lib/constants"
+import { features, featureSequence, MB14_SCALE, MB16_SCALE } from "../lib/constants"
 import { Suspense, useEffect, useRef } from "react"
 import { useMediaQuery } from "react-responsive"
 import { useGSAP } from "@gsap/react"
@@ -84,7 +84,7 @@ const ScrollTrigger = () => {
           </Html>
         }>
           <MacbookModel 
-            scale={isMobile ? SCALE_MOBILE : SCALE_DESKTOP}
+            scale={isMobile ? MB14_SCALE : MB16_SCALE}
             position={[0, -1, 0]}
           />
       </Suspense>

@@ -6,7 +6,7 @@ import { PresentationControls } from "@react-three/drei";
 import { useRef, type RefObject } from "react";
 import { useGSAP } from "@gsap/react";
 import { Group } from "three";
-import { ANIMATION_DURATION, OFFSET_DISTANCE, SCALE_DESKTOP, SCALE_MOBILE } from "../../../lib/constants";
+import { ANIMATION_DURATION, OFFSET_DISTANCE, MB16_SCALE, MB14_SCALE } from "../../../lib/constants";
 
 const fadeMeshes = (meshRef: RefObject<Group | null>, isVisible: boolean) => {
     if(!meshRef.current) return;
@@ -36,7 +36,7 @@ const ModelSwitcher = ({scale, isMobile}: ModelSwitcherType) => {
     const macbook16Ref = useRef(null);
     const macbook14Ref = useRef(null);
 
-    const showLargerModel = scale === SCALE_DESKTOP || scale == SCALE_MOBILE
+    const showLargerModel = scale === MB16_SCALE
 
     useGSAP(() => {
 
@@ -46,7 +46,7 @@ const ModelSwitcher = ({scale, isMobile}: ModelSwitcherType) => {
         moveMesh(macbook14Ref, showLargerModel ? -OFFSET_DISTANCE : 0);
         fadeMeshes(macbook14Ref, showLargerModel ? false : true);
 
-    }, [scale]);      
+    }, [scale, isMobile]);      
 
     const controlsConfig = {
         snap: true,
@@ -60,12 +60,12 @@ const ModelSwitcher = ({scale, isMobile}: ModelSwitcherType) => {
         <>
             <PresentationControls {...controlsConfig}>
                 <group ref={macbook16Ref}>
-                    <Macbook16Model scale={isMobile ? SCALE_MOBILE : SCALE_DESKTOP}/>
+                    <Macbook16Model scale={isMobile ? MB14_SCALE : MB16_SCALE}/>
                 </group>
             </PresentationControls>
             <PresentationControls {...controlsConfig}>
                 <group ref={macbook14Ref}>
-                    <Macbook14Model scale={isMobile ? 0.03 : 0.06}/>
+                    <Macbook14Model scale={isMobile ? 0.03 : MB14_SCALE}/>
                 </group>
             </PresentationControls>
         </>

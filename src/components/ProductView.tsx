@@ -7,6 +7,7 @@ import ModelSwitcher from "./models/threeJS/ModelSwitcher";
 import { Canvas } from "@react-three/fiber";
 import { useState } from "react";
 import { useMediaQuery } from "react-responsive";
+import { MB14_SCALE, MB16_SCALE } from "../lib/constants";
 
 const ProductView = () => {
     const { selectedColor, setSelectedColor, scale, setScale } = useMacbookStore();
@@ -19,7 +20,7 @@ const ProductView = () => {
             <h2>Take a closer look</h2>
 
             <div className="controls">
-                <p className="info">Macbook Pro {scale === 0.06 ? '14"' : '16"'} {selectedColor === '#adb5bd' ? 'Silver' : 'Space Black'}</p>
+                <p className="info">Macbook Pro {scale === MB14_SCALE ? '14"' : '16"'} {selectedColor === '#adb5bd' ? 'Silver' : 'Space Black'}</p>
 
                 <div className="flex-center gap-5 mt-5">
                     <div className="colorControl">
@@ -35,8 +36,8 @@ const ProductView = () => {
 
                     <div className="sizeControl">
                         <div
-                            onClick={() => setScale(0.06)}
-                            className={clsx(scale === 0.06 
+                            onClick={() => setScale(MB14_SCALE)}
+                            className={clsx(scale === MB14_SCALE 
                                 ? 'bg-white text-black' 
                                 : 'bg-transparent text-white'
                             )}
@@ -44,8 +45,8 @@ const ProductView = () => {
                             <p>14"</p>
                         </div>
                         <div
-                            onClick={() => setScale(0.08)}
-                            className={clsx(scale === 0.08 
+                            onClick={() => setScale(MB16_SCALE)}
+                            className={clsx(scale === MB16_SCALE 
                                 ? 'bg-white text-black' 
                                 : 'bg-transparent text-white'
                             )}
