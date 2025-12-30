@@ -9,7 +9,7 @@ import { useState } from "react";
 import { useMediaQuery } from "react-responsive";
 
 const ProductView = () => {
-    const { selectedColor, setSelectedColor, scale, setScale, reset } = useMacbookStore();
+    const { selectedColor, setSelectedColor, scale, setScale } = useMacbookStore();
     const [grabbing, setGrabbing] = useState(false)
 
     const isMobile = useMediaQuery({ query: '(max-width: 1024px)' });
